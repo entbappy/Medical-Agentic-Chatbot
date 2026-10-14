@@ -5,14 +5,20 @@ An educational medical assistant with retrieval from the bundled historical Gale
 ## Requirements
 Python 3.11 or 3.12; OpenAI, Pinecone, and Tavily API keys; internet connection. This is a tutorial reference implementation, **not** a clinically validated diagnostic system or HIPAA-compliant deployment.
 
-## Start (Windows PowerShell)
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+## Start
+```bash
+conda create -n project python=3.11 -y
+
+conda activate project
+
 pip install -r requirements.txt
-Copy-Item .env.example .env
+
+add  .env
+
 # Edit .env with real API keys
+
 python ingest.py --pdf data/medical_book.pdf
+
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
